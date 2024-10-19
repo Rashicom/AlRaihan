@@ -1,0 +1,18 @@
+services:
+  alraihan:
+    build: .
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./AlRaihan/static:/code/AlRaihan/static
+      - ./AlRaihan/media:/code/AlRaihan/media
+    depends_on:
+      - alraihan
