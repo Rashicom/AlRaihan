@@ -36,9 +36,7 @@
 							<a class="nav-link" href="index.html">Home</a>
 						</li>
 						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
+						<li><a class="nav-link" href="about.html">Offers</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
 					</ul>
 
@@ -86,47 +84,21 @@
 					</div> 
 					<!-- End Column 1 -->
 
-					<!-- Start Column 2 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="cart.html">
-							<img src="{% static 'images/product-1.png' %}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Safty</h3>
+					{% for cat in catagories %}
+
+						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+							<a class="product-item" href="cart.html">
+								<img src="{{cat.image.url}}" class="img-fluid product-thumbnail">
+								<h3 class="product-title">{{cat.name}}</h3>
+
+								<span class="icon-cross">
+									<img src="{% static 'images/cross.svg' %}" class="img-fluid">
+								</span>
+							</a>
+						</div>
 					
+					{% endfor %}
 
-							<span class="icon-cross">
-								<img src="{% static 'images/cross.svg' %}" class="img-fluid">
-							</span>
-						</a>
-					</div> 
-					<!-- End Column 2 -->
-
-					<!-- Start Column 3 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="cart.html">
-							<img src="{% static 'images/product-2.png' %}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Electrical</h3>
-	
-
-							<span class="icon-cross">
-								<img src="{% static 'images/cross.svg' %}" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 3 -->
-
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="cart.html">
-							<img src="{% static 'images/product-3.png' %}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Constructions</h3>
-
-
-							<span class="icon-cross">
-								<img src="{% static 'images/cross.svg' %}" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 4 -->
 
 				</div>
 			</div>
@@ -332,7 +304,7 @@
 			<div class="container relative">
 
 				<div class="sofa-img">
-					<img src="{% static 'images/sofa.png' %}" alt="Image" class="img-fluid">
+					<img src="{% static 'images/maan.png' %}" alt="Image" class="img-fluid">
 				</div>
 
 				<div class="row">
