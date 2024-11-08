@@ -1,4 +1,7 @@
 from django.db import models
+from PIL import Image
+from django_resized import ResizedImageField
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
@@ -18,10 +21,15 @@ class Products(models.Model):
 
     def __str__(self):
         return str(f"Product: {self.name}")
+
+    def get_first_image(self):
+        # Retrieve the first image associated with this product, if it exists
+        first_image = self.productimages_set.first()
+        return first_image.image.url if first_image else None
     
 class ProductImages(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='product_images/')
+    image = ResizedImageField(size=[477, 477],crop=['middle', 'center'],upload_to='product_images/')
 
     def __str__(self):
         return str(f"Image for Product: {self.product.name}")

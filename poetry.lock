@@ -35,6 +35,17 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-resized"
+version = "1.0.3"
+description = "Resizes image origin to specified size."
+optional = false
+python-versions = "*"
+files = [
+    {file = "django_resized-1.0.3-py3-none-any.whl", hash = "sha256:b5b0cf0d1db4f8db43362eef121d94d63487e2bff7a59c45046a1420788db353"},
+    {file = "django_resized-1.0.3.tar.gz", hash = "sha256:c199f2b6e315816753df3a7a3889b923d3b73ce89fa16af93761cf2ea9bac4f7"},
+]
+
+[[package]]
 name = "pillow"
 version = "11.0.0"
 description = "Python Imaging Library (Fork)"
@@ -155,4 +166,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "d7d1629b992a42607441fd2013eac23e0a829a5f0e625285852dfd6420e3cc64"
+content-hash = "7489836cc643d76776d853a1c7136b16d1a65bf5c1ec17ec3e0a3210b0c44529"

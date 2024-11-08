@@ -8,10 +8,13 @@ class HomeView(View):
         for i in catagories:
             print(i.image.url)
         return render(request, 'index.html', {"catagories": catagories})
-    
+
+
 class Shop(View):
     def get(self, request):
-        return render(request, 'shop.html')
+        products = Products.objects.all()
+        return render(request, 'shop.html', {"Products":products})
+
 
 class Contact(View):
     def get(self, request):
