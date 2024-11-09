@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from .models import Category, Products, ProductImages
 
+
 class HomeView(View):
     def get(self, request):
         catagories = Category.objects.all()[:3]

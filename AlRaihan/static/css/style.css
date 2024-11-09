@@ -35,10 +35,9 @@ a {
   padding-top: 20px;
   padding-bottom: 20px; }
   .custom-navbar .navbar-brand {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 600; }
-    .custom-navbar .navbar-brand > span {
-      opacity: .4; }
+    
   .custom-navbar .navbar-toggler {
     border-color: transparent; }
     .custom-navbar .navbar-toggler:active, .custom-navbar .navbar-toggler:focus {
