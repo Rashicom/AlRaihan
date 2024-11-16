@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+d3f88i#3#khg_$_yf5v)e@hp&4&=lxp*^n))d7dbnpv@-^i3z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "3.110.221.167", "alraihanhardwares.com", "www.alraihanhardwares.com"]
 
 
 # Application definition
@@ -132,3 +132,43 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# [Unit]
+# Description=gunicorn daemon
+# Requires=gunicorn.socket
+# After=network.target
+
+# [Service]
+# User=ubuntu
+# Group=www-data
+# WorkingDirectory=/home/ubuntu/AlRaihan/AlRaihan
+# ExecStart=/usr/bin/poetry run gunicorn \
+#           --access-logfile - \
+#           --workers 3 \
+#           --bind unix:/run/gunicorn.sock \
+#           config.wsgi:application
+
+# [Install]
+# WantedBy=multi-user.target
+
+
+# server {
+#     listen 80;
+#     server_name 3.110.221.167;
+
+#     location = /favicon.ico { access_log off; log_not_found off; }
+
+#     location /static/ {
+#         alias /home/ubuntu/AlRaihan/AlRaihan/static/;
+#     }
+#     location /media/ {
+#         alias /home/ubuntu/AlRaihan/AlRaihan/media/;
+#     }
+
+#     location / {
+#         include proxy_params;
+#         proxy_pass http://unix:/run/gunicorn.sock;
+#     }
+# }
