@@ -205,7 +205,14 @@ a {
     position: relative;
     padding-bottom: 50px;
     cursor: pointer; }
+
+
     .product-section .product-item .product-thumbnail {
+   
+      width: 33.4vh !important;
+      aspect-ratio: 2 / 2;      
+  
+  
       margin-bottom: 30px;
       position: relative;
       top: 0;
@@ -317,7 +324,8 @@ a {
     display: grid;
     -ms-grid-columns: (1fr)[27];
     grid-template-columns: repeat(27, 1fr);
-    position: relative; }
+    position: relative; 
+  }
     .we-help-section .imgs-grid:before {
       position: absolute;
       content: "";
@@ -708,3 +716,14 @@ textarea {
     height: 50px;
     border-radius: 50%;
     background: rgba(59, 93, 80, 0.2); }
+
+
+@media screen and (max-width: 768px) {
+  .hero .hero-img-wrap img{
+    width: 70%;
+    height: 60%;
+    object-fit: cover;
+    margin-left: 35%;
+
+  }
+}
