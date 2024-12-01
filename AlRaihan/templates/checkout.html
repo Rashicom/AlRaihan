@@ -8,13 +8,24 @@
 			<a class="nav-link" href="/">Home</a>
 		</li>
 		<li><a class="nav-link" href="/shope">Shop</a></li>
-		<li><a class="nav-link" href="/offers">Offers</a></li>
+		<li class="nav-link dropdown">
+			<a class="dropdown-toggle sp-btn text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				Categories
+			</a>
+			
+
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				{% for cat in catagories %}
+			  		<li><a class="dropdown-item" href="{% url 'catagory' category_id=cat.pk %}>{{cat.name}}</a></li>
+				{% endfor %}
+			</ul>
+		</li>
 		<li><a class="nav-link" href="/contact">Contact us</a></li>
 	</ul>
 
 	<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 		<li><a class="nav-link" href="#"><img src="{% static 'images/user.svg' %}"></a></li>
-		<li><a class="nav-link" href="#"><img src="{% static 'images/cart.svg' %}"></a></li>
+		<li><a class="nav-link" href="/shope"><img src="{% static 'images/cart.svg' %}"></a></li>
 	</ul>
 </div>
 {% endblock tobar %}

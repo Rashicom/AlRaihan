@@ -11,14 +11,14 @@
 		<li><a class="nav-link" href="/shope">Shop</a></li>
 		<li class="nav-link dropdown">
 			<a class="dropdown-toggle sp-btn text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-				Services
+				Categories
 			</a>
 			
 
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-			  <li><a class="dropdown-item" href="#">Web Development</a></li>
-			  <li><a class="dropdown-item" href="#">Designing</a></li>
-			  <li><a class="dropdown-item" href="#">Marketing</a></li>
+				{% for cat in catagories %}
+			  		<li><a class="dropdown-item" href="{% url 'catagory' category_id=cat.pk %}">{{cat.name}}</a></li>
+				{% endfor %}
 			</ul>
 		</li>
 
@@ -27,7 +27,7 @@
 
 	<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 		<li><a class="nav-link" href="#"><img src="{% static 'images/user.svg' %}"></a></li>
-		<li><a class="nav-link" href="#"><img src="{% static 'images/cart.svg' %}"></a></li>
+		<li><a class="nav-link" href="/shope"><img src="{% static 'images/cart.svg' %}"></a></li>
 	</ul>
 </div>
 {% endblock tobar %}
@@ -64,14 +64,14 @@
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
 						<h2 class="mb-4 section-title">Explore our new categories.</h2>
 						<p class="mb-4">Discover the latest tools and materials tailored to your needs. Elevate your projects with our expanded selection, explore what's new. </p>
-						<p><a href="shop.html" class="btn">Explore</a></p>
+						<p><a href="/shope" class="btn">Explore</a></p>
 					</div> 
 					<!-- End Column 1 -->
 
-					{% for cat in catagories %}
+					{% for cat in random_catagories %}
 
 						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-							<a class="product-item" href="cart.html">
+							<a class="product-item" href="{% url 'catagory' category_id=cat.pk %}">
 								<img src="{{cat.image.url}}" class="product-thumbnail">
 								<h3 class="product-title">{{cat.name}}</h3>
 
@@ -178,7 +178,7 @@
 							<li>ensuring exceptional service and support</li>
 							<li>maintaining high standards in all aspects</li>
 						</ul>
-						<p><a herf="#" class="btn">Explore</a></p>
+						<p><a herf="/shope" class="btn">Explore</a></p>
 					</div>
 				</div>
 			</div>
