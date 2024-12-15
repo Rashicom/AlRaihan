@@ -1,0 +1,105 @@
+
+{% extends "adminbase.html" %}
+{% load static %}
+        
+
+{% block dashblock %}
+<a
+  class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+  href="/adminpan/dash"
+>
+{% endblock dashblock %}
+
+{% block catagoriesblock %}
+<a
+  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+  href="/adminpan/catagory"
+>
+{% endblock catagoriesblock %}
+
+{% block productblock %}
+<a
+  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+  href="/adminpan/products"
+>
+{% endblock productblock %}
+
+{% block content %}
+        <main class="h-full pb-16 overflow-y-auto">
+          <div class="container px-6 mx-auto grid">
+            <form method="post">
+            {% csrf_token %}
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+              Account Details
+            </h2>
+            
+            <div
+              class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+            >
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Address</span>
+                <input
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  {% if contact %}
+                    value="{{contact.address}}"
+                  {% else %}
+                    placeholder="Enter address"
+                  {% endif %}
+                  name="address"
+                />
+              </label>
+
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Mobile number</span>
+                <input
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  {% if contact %}
+                    value="{{contact.mobile_number}}"
+                  {% else %}
+                    placeholder="Enter mobile number"
+                  {% endif %}
+                  name="mobile_number"
+                />
+              </label>
+
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Email</span>
+                <input
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  {% if contact %}
+                    value="{{contact.email}}"
+                  {% else %}
+                    placeholder="Enter email"
+                  {% endif %}
+                  name="email"
+                />
+              </label>
+              
+              <button style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; margin-top: 20px;" 
+                      type="submit"
+                      onmouseover="this.style.backgroundColor='#45a049'" 
+                      onmouseout="this.style.backgroundColor='#4CAF50'">
+                  Edit
+              </button>
+              
+              {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                        <li style="color: red;">{{ message }}</li>
+                      {% else %}
+                        <li style="color: green;">{{ message }}</li>
+                      {% endif %}
+                    {% endfor %}
+                </ul>
+              {% endif %}
+
+            </div>
+            </form>
+          </div>
+
+
+{% endblock content %}
+
